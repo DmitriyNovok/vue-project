@@ -1,5 +1,48 @@
 <template>
     <li>
-        Todo item One
+        <span v-bind:class="{done: todo.complited}">
+            <input type="checkbox" v-on:change="todo.complited = !todo.complited"/>
+            <strong>
+                {{todo.id}}
+            </strong>
+            {{todo.title}}
+        </span>
+        <button class="remove">&times;</button>
     </li>
 </template>
+
+<script>
+    export default {
+        props: {
+            todo: {
+                type: Object,
+                required: true
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    li {
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        padding: .5rem 2rem;
+        margin-bottom: 1rem;
+    }
+
+    input {
+        margin-right: 1rem;
+    }
+
+    .done {
+        text-decoration: line-through;
+    }
+
+    .remove {
+        background: red;
+        color: #fff;
+        border-radius: 50%;
+        font-weight: bold;
+    }
+</style>
