@@ -7,7 +7,9 @@
             </strong>
             {{todo.title}}
         </span>
-        <button class="remove">&times;</button>
+        <button class="remove"
+                v-on:click="$emit('remove-todo', todo.id)"
+        >&times;</button>
     </li>
 </template>
 
