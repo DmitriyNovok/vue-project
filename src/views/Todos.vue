@@ -6,6 +6,12 @@
         />
         <router-link to="/">Home</router-link>
         <hr>
+        <select v-model="filter">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="not-completed">Not-completed</option>
+        </select>
+        <hr>
         <Loader v-if="loading"/>
         <TodoList
         v-else-if="todos.length"
@@ -29,7 +35,8 @@
                     {id: 2, title: 'Item Second', completed: false},
                     {id: 3, title: 'Item Three', completed: false},
                 ],
-                loading: true
+                loading: true,
+                filter: 'all'
             }
         },
         mounted() {
@@ -37,6 +44,11 @@
                 this.loading = false
             }, 1000)
 
+        },
+        watch: {
+            filter(value) {
+                console.log(value)
+            }
         },
         components: {
             TodoList:TodoList,
