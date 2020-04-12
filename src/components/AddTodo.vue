@@ -25,7 +25,7 @@
                     const newTodo = {
                         id: date,
                         title: this.title,
-                        complited: false
+                        completed: false
                     };
                     this.$emit('add-todo', newTodo)
                     this.title = ''

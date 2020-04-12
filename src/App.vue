@@ -14,9 +14,9 @@ export default {
   data() {
     return {
       todos: [
-        {id: 1, title: 'Item One', complited: false},
-        {id: 2, title: 'Item Second', complited: false},
-        {id: 3, title: 'Item Three', complited: false},
+        {id: 1, title: 'Item One', completed: false},
+        {id: 2, title: 'Item Second', completed: false},
+        {id: 3, title: 'Item Three', completed: false},
       ]
     }
   },
