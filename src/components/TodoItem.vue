@@ -5,7 +5,7 @@
             <strong>
                 {{index + 1}}
             </strong>
-            {{todo.title}}
+            {{todo.title | uppercase}}
         </span>
         <button class="remove"
                 v-on:click="$emit('remove-todo', todo.id)"
@@ -21,6 +21,11 @@
                 required: true
             },
             index: Number
+        },
+        filters: {
+            uppercase(value) {
+                return value.toUpperCase()
+            }
         }
     }
 </script>
