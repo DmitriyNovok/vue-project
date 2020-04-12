@@ -7,9 +7,11 @@
         <router-link to="/">Home</router-link>
         <hr>
         <TodoList
+        v-if="todos.length"
         v-bind:todos="todos"
         @remove-todo="removeTodo"
         />
+        <p v-else>All todo complited!</p>
     </div>
 </template>
 
