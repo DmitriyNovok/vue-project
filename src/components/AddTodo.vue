@@ -20,14 +20,15 @@
                             return new Date().getTime();
                         };
                     } else {
-                        var date = new Date();
+                        var date = Date.now();
                     }
                     const newTodo = {
-                        id:date.getDate()+'.'+date.getMonth()+' '+date.getHours() +':'+ date.getMinutes(),
+                        id: date,
                         title: this.title,
                         complited: false
                     };
                     this.$emit('add-todo', newTodo)
+                    this.title = ''
                 }
             }
         }
