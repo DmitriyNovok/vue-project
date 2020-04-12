@@ -6,8 +6,9 @@
         />
         <router-link to="/">Home</router-link>
         <hr>
+        <Loader v-if="loading"/>
         <TodoList
-        v-if="todos.length"
+        v-else-if="todos.length"
         v-bind:todos="todos"
         @remove-todo="removeTodo"
         />
@@ -18,6 +19,7 @@
 <script>
     import TodoList from '@/components/TodoList'
     import AddTodo from '@/components/AddTodo'
+    import Loader from '@/components/Loader'
     export default {
         name: 'App',
         data() {
@@ -26,12 +28,20 @@
                     {id: 1, title: 'Item One', complited: false},
                     {id: 2, title: 'Item Second', complited: false},
                     {id: 3, title: 'Item Three', complited: false},
-                ]
+                ],
+                loading: true
             }
+        },
+        mounted() {
+            setTimeout(() => {
+                this.loading = false
+            }, 1000)
+
         },
         components: {
             TodoList:TodoList,
-            AddTodo:AddTodo
+            AddTodo:AddTodo,
+            Loader:Loader
         },
         methods: {
             removeTodo(id) {
