@@ -1,14 +1,8 @@
 <template>
   <div id="app">
     <h1>App Vue</h1>
-    <AddTodo
-    @add-todo="addTodo"
-    />
     <hr>
-    <TodoList
-    v-bind:todos="todos"
-    @remove-todo="removeTodo"
-    />
+    <router-view/>
   </div>
 </template>
 
