@@ -5,6 +5,7 @@
             v-for="todo in todos"
             v-bind:todo="todo"
             v-on:remove-todo="removeTodo"
+            v-on:add-todo="addTodo"
             />
         </ul>
     </div>
@@ -20,6 +21,9 @@
         methods: {
             removeTodo(id) {
                 this.$emit('remove-todo', id)
+            },
+            addTodo(todo) {
+                this.$emit('add-todo', todo);
             }
         }
     }
